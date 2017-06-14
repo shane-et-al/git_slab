@@ -5,7 +5,7 @@ date:   2017-06-14 13:51:25 -0400
 categories: workshop
 ---
 
-![Git for Digital Humanists]({{ site.url }}/git_slab/assets/git_hum.png)[^1]
+![Git for Digital Humanists](/git_slab/assets/git_hum.png)[^1]
 
 * Table of Contents
 {:toc}
@@ -35,11 +35,11 @@ A VCS keeps a record of every revision. This is most commonly useful when things
 
 To differing degrees, VCSes also provide ways to manually and automatically describe changes. Whenever Alice and Bob commit a change, they are also required to document what that change does. This feature is useful only insofar as the descriptions illuminate. "Bug fix" or "new feature" are examples of low effort, extremely common, but intellectually vacant comments.
 
-![A bad commit comment]({{ site.url }}/git_slab/assets/annotation.png)
+![A bad commit comment](/git_slab/assets/annotation.png)
 
 Independent of human fallibility, VCSes also track data automatically. Each commit is tagged with the person who committed it, so that praise or blame can be metted out accordingly. Depending on the system, a VCS may also record the history of a commit such that the entire intellectual lineage of source code can be traced.
 
-![Network graph for Scholarslab/Omeka]({{ site.url }}/git_slab/assets/network.png)
+![Network graph for Scholarslab/Omeka](/git_slab/assets/network.png)
 
 In the immaginary field of the intellectual history of software, the metadata and text reserved by VCSes render them as important archives of how ideas in code clashed, branched, and merged.
 
@@ -116,7 +116,7 @@ To create a new repository, navigate to a directory and type: `git init`
 
 But normally, especially if we're using Github, this isn't necessary. Usually, we'll want to create our repositories on a remote server first and then clone them locally. To do this, create a new repo on your account on Github (or fork another repo) by clicking the green "new repository" button or through the + menu on the top right menu. 
 
-![Cloning a Github repo]({{ site.url }}/git_slab/assets/clone_repo.png)
+![Cloning a Github repo](/git_slab/assets/clone_repo.png)
 
 In the Github page for the new repository, click the green "Clone or download" button and copy the URL that pops up. Paste that url into this terminal command: `git clone *url*`
 
@@ -187,7 +187,7 @@ Panic
 
 Obligatory XKCD:
 
-![XKCD 1597]({{ site.url }}/git_slab/assets/xkcd_git.png)[^xkcd]
+![XKCD 1597](/git_slab/assets/xkcd_git.png)[^xkcd]
 
 # Cheat Sheet
 https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
