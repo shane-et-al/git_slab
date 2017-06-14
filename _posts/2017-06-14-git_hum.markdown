@@ -1,0 +1,204 @@
+---
+layout: post
+title:  "Git for Humanists"
+date:   2017-06-14 13:51:25 -0400
+categories: workshop
+---
+
+![Git for Digital Humanists]({{ site.url }}/git_slab/assets/git_hum.png)[^1]
+
+* Table of Contents
+{:toc}
+
+# What is Git?
+
+Git is a popular third-generation Version Control System.
+
+Well okay then. What is version control?
+
+Version control is software that helps many different people work on the same project together without getting in each others' way. VCS keeps code (and other data) in one place and enforces rules for how it's updated so everyone can work on the same source simultaneously without risk of overwriting or breaking it. In addition, VCS saves all the different versions of code (and other data) and metadata about each revision. Eric Raymond describes these three capabilities of version control as concurrency, reversibility, and annotation.[^2] Let's take a look at what these features are and why they're useful before diving deeply into how git accomplishes each.
+
+## Concurrency
+Concurrency allows many different coders to work on the same files at the same time. Doing this and ultimately producing a consistent result is hard. Even with the help of a VCS, it can be a bit of work. Without a VCS, it's a hot mess. Let's take a look at a simple example: Alice and Bob are both working on the same file. Alice works all day and saves her changes. Then, without realizing it, Bob saves his changes over hers. Alice gets mad at Bob and their partnership is dissolved in bitterness and enmity.
+
+To get around this, people might coordinate beforehand on what they'll be working on to stay out of each others' way. Or they'll try to label files uniquely, creating many different versions like "code_alice_july_20_c.py".
+
+But these are onerous workarounds and they often leave Alice and Bob open to more nuanced and insidious problems and they quickly break down as projects become more complex and teams grow larger. To wit: Ruby on Rails (https://github.com/rails/rails), one of the largest projects hosted on Github (more about that later), comprises more than 62,000 commits from over 3300 contributors. 
+
+Rails is a good example of the power of good version control. Software like Git have allowed software development projects, particularly modern open source projects, to leverage the insights and labor from complete strangers from all over the world. There's a small, core team that has contributed tens of thousands of lines of code, but tens of thousands who have added a few new lines or a tiny bug fix. Scholarship may often be a lonely endevour, but version control has made it possible for software development to grow into huge parties.
+
+## Reversibility
+
+A VCS keeps a record of every revision. This is most commonly useful when things completely fall apart and the ability of reverting to an earlier, good version provides a quick and easy fix. Since we can also see exactly what's different from version to version, it's also easy to track down exactly what changes caused the problem. No less useful is the ability to return to an earlier state of the project's source, to track down a new bug in a specific older version or else to compare the function of new and old code.
+
+## Annotation
+
+To differing degrees, VCSes also provide ways to manually and automatically describe changes. Whenever Alice and Bob commit a change, they are also required to document what that change does. This feature is useful only insofar as the descriptions illuminate. "Bug fix" or "new feature" are examples of low effort, extremely common, but intellectually vacant comments.
+
+![A bad commit comment]({{ site.url }}/git_slab/assets/annotation.png)
+
+Independent of human fallibility, VCSes also track data automatically. Each commit is tagged with the person who committed it, so that praise or blame can be metted out accordingly. Depending on the system, a VCS may also record the history of a commit such that the entire intellectual lineage of source code can be traced.
+
+![Network graph for Scholarslab/Omeka]({{ site.url }}/git_slab/assets/network.png)
+
+In the immaginary field of the intellectual history of software, the metadata and text reserved by VCSes render them as important archives of how ideas in code clashed, branched, and merged.
+
+# Version control for Digital Humanists
+
+VCS is predominantly used in software development. Most tools that VCSes integrate with or are integrated with VCSes are designed to carry out development tasks: building, testing, deployment. Trivially, digital humanists who code can take advantage of these usages. However, VCSes can be used with files other than source code.
+
+For scholars collaborating on an essay or book or even a single researcher working alone, a VCS can offer many of the advantages to text it does for code. Working with simple human-readable plain text format rather than binary (legacy Word documents) or heavily formatted (post 2007 Office Open XML Word documents) files will allow users to fully take advantage of a VCS. Markdown (https://daringfireball.net/projects/markdown/syntax), created by John Gruber and Aaron Swartz, is a simple text markup language that's become the defacto standard in this domain. This page was written in a Markdown flavor. 
+
+
+# A Brief History of Version Control
+
+(I am a cultural historian of computer technology and therefore obliged by the strictures of my guild to include this section. It is not essential to learn how to use Git, but it's useful to know how it differs from its antecedents. If you are also a cultural historian of computer technology, you are similarly obliged to read this. If you are not, please feel more than free to skip to the next part.)
+
+## First Generaion
+
+Although there were earlier versioning systems, Marc Rochkind of Bell Labs established many basic concepts of modern version control with the Source Code Control System in 1972. Direct descendents of SCCS survived through the 1990s and its versioning nomenclature, with major and minor version numbers seperated by a period, remains popular. It was the progenitor of what Eric Raymond termed the first generation of VCS, characterized by centralization (SCCS was written for the IBM OS/360 mainframe operating system and later adapted to Unix and originally had no network functionality) and simple single-file locking-based concurrency. When Alice wants to do some work, she logs onto the mainframe, locks one file, and the system simply prevents Bob from working on that same file.[^3]
+
+SCCS was followed by the Revision Control System, written by Walter Tichy of Purdue University in 1982. RCS was functionally very similar to SCCS (centralized, locking-based) and was, like SCCS, originally offered with a restrictive proprietary license.[^4] However, Tichy began to loosen these restrictions over the next decade and, in 1990, released version 4.3 under the GPL. RCS became an important part of the early Free Software movement, eventually falling under the auspices of the GNU Project. As a result, unlike SCCS, it remains maintained, widely available, and still in modest use.[^5] Version control systems of this generation were and still are best used for simple code without complex structures (e.g. single file scripts, text files) by very small teams. RCS has survived for so long because its simplicity makes it easy to use for trivial versioning.
+
+## Second Generation
+
+The next generation of version control was created to accomodate more complex programing structure and to leverage the increasing power of computer networks. Dick Grune, a lecturer at the Vrije Universiteit in Amsterdam, wrote a series of wrapper scripts for RCS in the mid-1980s that eventually became the Concurrent Versions System.[^6]
+
+## Third Generation
+
+# Git and Github
+
+Git is a third-generation version control system. Github is the most popular web-based code repository that uses Git.
+
+Git was created in 2005 by the creator of the Linux kernel, Linus Torvalds, for use in its development. Torvalds designed Git to be a repudiation of the core design of CVS; it is a distributed, commit-before-merge VCS that better supports massive projects and easy non-linear development through rapid branching and merging.[^7] At least in theory. It is Free Software licensed under the GPL. The name "Git" comports with its description as "the stupid content tracker."[^8]
+
+Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on our Github account (https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
+
+#Installing Git
+
+Since we'll be using Git with Github, create a free account at Github now: https://github.com/join?source=header-home
+
+Github provides a graphic interface front-end to Git called Github Desktop, for use with their services. Some other IDEs also have built-in integration with Git. Instead of using these, we're going to do this the "hard" way using the command line so that we know exactly what's going on every step.
+
+## Linux
+
+If you're using a Debian-based distribution like Ubuntu, install git using the APT package manager. Open the terminal using the Ctrl-Alt-T shortcut and type: `sudo apt-get install git`
+
+If you're using some other kind of *nix, take a look here: https://git-scm.com/download/linux
+
+Verify that the installation has succeeded by typing: `git --version`
+
+## OSX
+For OSX version 10.9 (Mavericks) and above, the easiest way is to open the Terminal app and type `git`. If you don't have it installed already, OSX will prompt you to install XCode, which comes bundled with an Apple fork of Git.
+
+Alternatively, download the OSX binary installer for the latest stable release from http://git-scm.com/download/mac.
+
+Verify that the installation has succeeded by typing: `git --version`
+
+## Windows
+Download the Windows binary installer for the latest stable release from https://git-scm.com/download/win.
+
+Default settings should be fine. Once the installation is complete, open the special Git Bash terminal. This uses MinGW-w64's Bourne Shell command line interpreter which supports the same POSIX shell commands native to the Linux and OSX terminals. If you're familiar with the DOS style command line, most of the commands are different but the functionality is similar.
+
+In this shell, verify that the installation has succeeded by typing: `git --version`
+
+# Getting started
+
+A repository is the data store that contains all the files that git manages. Unlike earlier, centralized repositories that stored files in a single central server, Git repositories are distributed. Each user has a local repository of his or her computer. Actually, everyone can have many repositories. The common practice is that a new repository is created for every distinct project. A single central repository might serve as the authoritative source for a project, but local repositories allow users to work disconnected from it and still enjoy the benefits of VCS.
+
+Repositories can be created from scratch or else cloned from another. Git's decentralized system means that the typical workflow for checking out code, making changes, and then submitting those changes is to essentially fork a remote repository (from, say, Github) to your local one, make changes, and then merge those changes back to the remote. In the last generation of VCSes and past understanding of software development, forking had a tone of permanance, implying a cleft that is difficult to rejoin. In Git, forks and branches are often described as "lightweight" and constantly created, diverged, and converged.
+
+When you create a new repository in a direcory with Git, it creates a hidden .git subdirectory that stores all its additional data. Otherwise, the current version of files tracked by the repository live in the directory normally, able to be directly edited, compiled, and otherwise used.
+
+# Creating/Cloning a Repository
+
+To create a new repository, navigate to a directory and type: `git init`
+
+But normally, especially if we're using Github, this isn't necessary. Usually, we'll want to create our repositories on a remote server first and then clone them locally. To do this, create a new repo on your account on Github (or fork another repo) by clicking the green "new repository" button or through the + menu on the top right menu. 
+
+![Cloning a Github repo]({{ site.url }}/git_slab/assets/clone_repo.png)
+
+In the Github page for the new repository, click the green "Clone or download" button and copy the URL that pops up. Paste that url into this terminal command: `git clone *url*`
+
+This will create a new local repository in a new directory under the current path with the name of the repo. And that's it. Now you've got *two* Git repositories up and running: the remote one on Github and the local one in the directory you chose.
+
+Switch to that new directory and check how the repo is doing with: `git status`
+
+This is a useful command that tells you what branch you're on, what changes you have staged (or not), where your local repo is relative to the remote, and some warnings and errors with your configuration.
+
+You can also take a look at the entire history of the repo with `git log`
+
+# Stage and Commit
+
+Let's make some changes. Create a new file in the directory: `touch foo.bar`
+
+Try `git status` again. Git should recognize that there's a new file, but since we haven't explicitly told it to care about that file, it's still an "untracked file."
+
+This file and whatever other changes we might have made now exist as part of our "working tree", the set of files that we're currently working on, but aren't yet stored into the repository. To store a file into the repository, we have to commit it and before we can commit a file, we need to track and stage it.
+
+We can tell Git to track the new file using `git add foo.bar` or simply `git add *` to add all the files in the directory. By default, `git add *` still ignores temporary, build, and log files that are typically generated by the compilation and running of source code, which we almost never want version control to track.
+
+`git add` also stages a file by adding it to the index, which tells git what files we want to commit. A Git commit is the most basic operation that describes how sets of files have changed. Each commit lives forever in the history of the project, uniquely identified by a 40-character hash.
+
+To commit the index, we use `git commit -m "message"`
+
+All commits require a message that describes the changes. Instead of manually staging them, files that have been changed and are already tracked by Git can be automatically added to the index at the time of commit using the -a flag.
+
+# Synchronization
+
+Now, the file is committed to our local repository. But it doesn't yet exist on the remote. Synchronization in git happens using `pull` and `push` commands. These are essentially mirrored commands and which one you use depends on what permissions you have.
+
+Typically, if we have the authority to write to the remote repo, we can use `git push origin master`
+
+This tells Git to push our changes back to the *origin*, which is a reference to the remote repo at Github that we cloned ours from, on the *master* branch, which is the default, main branch (more on branches later). This updates the remote repo with our changes.
+
+# Merging
+
+What if two people are working on the same project? Alice and Bob both clone the same remote repo. Alice finishes her work first, commits her changes, and then pushes those changes back to the remote. Bob finishes his work, commits his changes, and then runs `git push origin master`
+
+In this case, Git returns a rejection and helpfully tells Bob that he needs to do a pull first. This happens even if Bob and Alice have edited different files, because source code is so heavily interdependent.
+
+A Git pull is the opposite of a push. By running `git pull origin`, we're pulling the changes that have been made to the remote server back to our local repo.
+
+
+
+
+
+	push
+	diff
+	merge
+
+#Slightly more advanced concepts
+	
+Branching
+	Branch vs Fork
+	Fork vs Clone (fake)
+	branch (--list --contains --no-contains -d )
+	checkout
+	Pull
+	Rebase
+
+Pull request
+	
+Reversion
+	Revert
+
+Panic
+
+Obligatory XKCD:
+
+![XKCD 1597]({{ site.url }}/git_slab/assets/xkcd_git.png)[^xkcd]
+
+# Cheat Sheet
+https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
+
+
+[^1]: Thanks to Charles Berlin for the cover image generator: https://dev.to/rly
+[^2]: Much of the historical material in this guide comes from Eric Raymond's Understanding Version-Control Systems (DRAFT): http://www.catb.org/~esr/writings/version-control/version-control.html
+[^3]: http://basepath.com/aup/talks/SCCS-Slideshow.pdf
+[^4]: http://www.gnu.org/software/rcs/tichy-paper.pdf
+[^5]: The latest version, as I write this, is 5.9.4, released January 2015. https://www.cs.purdue.edu/homes/trinkle/RCS/
+[^6]: http://dickgrune.com/Programs/CVS.orig/#History
+[^7]: Torvalds described the Git design process as "WWCVSND: What Would CVS Never Do". https://www.youtube.com/watch?v=4XpnKHJAok8
+[^8]: https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README
+[^xkcd]: https://xkcd.com/1597/
