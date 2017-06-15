@@ -68,6 +68,8 @@ By the late-1990s, programmers became increasingly aware that CVS's poor support
 
 Subversion's success was relatively short-lived. Within a few years of its release, the next generation of decentralized VCS began to gain influence. Larry McVoy's BitKeeper was designed explicitly to comport with the distributed, "patch-oriented" style of Linux kernel development, the highest profile open source project of its day. BitKeeper, along with Arch, also popularized the shift from filesets to changesets that further made operations like branching even lighter weight. However, due to a variety of issues, ranging from a lack of functional maturity and performance problems to licensing issues, no decentralized VCS had significant adoption over the long-term until the release of Git, which seemed to adequately solve each of these concerns.
 
+Since then, Git has become very, very widely used.
+
 # Git and Github
 
 Git is a third-generation version control system. Github is the most popular web-based code repository that uses Git.
@@ -75,6 +77,8 @@ Git is a third-generation version control system. Github is the most popular web
 Git was created in 2005 by the creator of the Linux kernel, Linus Torvalds, for use in its development. Torvalds designed Git to be a repudiation of the core design of CVS; it is a distributed, commit-before-merge VCS that better supports massive projects and easy non-linear development through rapid branching and merging.[^7] At least in theory. It is Free Software licensed under the GPL. The name "Git" comports with its description as "the stupid content tracker."[^8]
 
 Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on our Github account (https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
+
+![Octocat](/git_slab/assets/octocat.jpg)
 
 #Installing Git
 
