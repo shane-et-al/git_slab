@@ -172,6 +172,8 @@ Once the conflicts have been manually resolved, mark the files as ready for comm
 
 # Slightly more advanced concepts
 
+## Branches 
+
 Branches are like repositories in that they allow code to diverge, but with a slightly different inflection. Git branches live in repos and they're all copied over when a repo is cloned. The philosophical distinction between forks and branches used to be clearer. Forks were implicitly permanent divorces and they still possess that tone when used in context of projects rather than version control. There are [multitudes of Linux distributions](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg), a majority which have been forked from three lineages: Debian, Slackware, and Red Hat. Merges between distributions are virtually nonexistant. Forks also diverged the code, but always kept it within the project.
 
 Git and its generation of VCSes along with Github have more recently confused the distinction. All local repositories are forks and the ubiquity and ease of merging them means that there exists significant overlap. Branching is now typicaly used to separate the development of independent features. A common practice now is to keep a "production" branch that represents the live code running in the wild and segregate new development onto an array of branches that are only merged back once they're ready to launch. This makes it easy to develop and deploy bug fixes without needing to shelve new code, although Git's flexibility means that this distinction is often just psychological. There are some technical differences too (repositories hold full copies of data whereas branches are just pointers to a certain commit), but often these don't really affect the user experience.
@@ -184,9 +186,9 @@ We've already used branches. When we've pushed and pulled, we've typically speci
 
 Once changes in one branch are ready to be committed back to another, we can use `git merge *branch_name*` to bring those changes back *into* the current branch. After that, `git branch -d *branch_name*` deletes the branch.
 
-# Pull requests
+## Pull requests
 
-One last thing to shape you into a productive member of society.
+One last thing, to shape you all into productive members of society.
 
 Open source software thrives on the limitless collaborative possibilities of the Internet. But the usual case when working with a project someone else owns is that you won't have permission to push directly to their repository. The polite way to suggest a contribution is the Pull Request, which is exactly what it sounds like - a request asking a remote repo to pull commits from yours.
 
