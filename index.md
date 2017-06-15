@@ -20,7 +20,7 @@ Concurrency allows many different coders to work on the same files at the same t
 
 To get around this, people might coordinate beforehand on what they'll be working on to stay out of each others' way. Or they'll try to label files uniquely, creating many different versions like "code_alice_july_20_c.py".
 
-But these are onerous workarounds and they often leave Alice and Bob open to more nuanced and insidious problems and they quickly break down as projects become more complex and teams grow larger. To wit: Ruby on Rails (https://github.com/rails/rails), one of the largest projects hosted on Github (more about that later), comprises more than 62,000 commits from over 3300 contributors. 
+But these are onerous workarounds and they often leave Alice and Bob open to more nuanced and insidious problems and they quickly break down as projects become more complex and teams grow larger. To wit: [Ruby on Rails](https://github.com/rails/rails), one of the largest projects hosted on Github (more about that later), comprises more than 62,000 commits from over 3300 contributors. 
 
 Rails is a good example of the power of good version control. Software like Git have allowed software development projects, particularly modern open source projects, to leverage the insights and labor from complete strangers from all over the world. There's a small, core team that has contributed tens of thousands of lines of code, but tens of thousands who have added a few new lines or a tiny bug fix. Scholarship may often be a lonely endeavor, but version control has made it possible for software development to grow into huge parties.
 
@@ -44,7 +44,7 @@ In the imaginary field of the intellectual history of software, the metadata and
 
 VCS is predominantly used in software development. Most tools that VCSes integrate with or are integrated with VCSes are designed to carry out development tasks: building, testing, deployment. Trivially, digital humanists who code can take advantage of these usages. However, VCSes can be used with files other than source code.
 
-For scholars collaborating on an essay or book or even a single researcher working alone, a VCS can offer many of the advantages to text it does for code. Working with simple human-readable plain text format rather than binary (legacy Word documents) or heavily formatted (post 2007 Office Open XML Word documents) files will allow users to fully take advantage of a VCS. Markdown (https://daringfireball.net/projects/markdown/syntax), created by John Gruber and Aaron Swartz, is a simple text markup language that's become the defacto standard in this domain. This page was written in a Markdown flavor.
+For scholars collaborating on an essay or book or even a single researcher working alone, a VCS can offer many of the advantages to text it does for code. Working with simple human-readable plain text format rather than binary (legacy Word documents) or heavily formatted (post 2007 Office Open XML Word documents) files will allow users to fully take advantage of a VCS. [Markdown](https://daringfireball.net/projects/markdown/syntax), created by John Gruber and Aaron Swartz, is a simple text markup language that's become the defacto standard in this domain. This page was written in a Markdown flavor.
 
 Software development used to be a solitary or small-scale activity. Version control has changed that dramatically in the last three decades. I don't know what sort of collaborative possibilities VCS might offer to scholars, but the potential for any kind of radical transformation should merit some thought and experimentation.
 
@@ -76,13 +76,13 @@ Git is a third-generation version control system. Github is the most popular web
 
 Git was created in 2005 by the creator of the Linux kernel, Linus Torvalds, for use in its development. Torvalds designed Git to be a repudiation of the core design of CVS; it is a distributed, commit-before-merge VCS that better supports massive projects and easy non-linear development through rapid branching and merging.[^7] At least in theory. It is Free Software licensed under the GPL. The name "Git" comports with its description as "the stupid content tracker."[^8]
 
-Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on our Github account (https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
+Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on [our Github account](https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
 
 ![Octocat](/git_slab/assets/octocat.jpg)
 
 # Installing Git
 
-Since we'll be using Git with Github, create a free account at Github now: https://github.com/join?source=header-home
+Since we'll be using Git with Github, create a free account at Github now: [https://github.com/join?source=header-home](https://github.com/join?source=header-home)
 
 Github provides a graphic interface front-end to Git called Github Desktop, for use with their services. Some other IDEs also have built-in integration with Git. Instead of using these, we're going to do this the "hard" way using the command line so that we know exactly what's going on every step.
 
@@ -90,19 +90,19 @@ Github provides a graphic interface front-end to Git called Github Desktop, for 
 
 If you're using a Debian-based distribution like Ubuntu, install git using the APT package manager. Open the terminal using the Ctrl-Alt-T shortcut and type: `sudo apt-get install git`
 
-If you're using some other kind of *nix, take a look here: https://git-scm.com/download/linux
+If you're using some other kind of *nix, take a look here: [https://git-scm.com/download/linux](https://git-scm.com/download/linux)
 
 Verify that the installation has succeeded by typing: `git --version`
 
 ## OSX
 For OSX version 10.9 (Mavericks) and above, the easiest way is to open the Terminal app and type `git`. If you don't have it installed already, OSX will prompt you to install XCode, which comes bundled with an Apple fork of Git.
 
-Alternatively, download the OSX binary installer for the latest stable release from http://git-scm.com/download/mac.
+Alternatively, download the OSX binary installer for the latest stable release from [http://git-scm.com/download/mac](http://git-scm.com/download/mac).
 
 Verify that the installation has succeeded by typing: `git --version`
 
 ## Windows
-Download the Windows binary installer for the latest stable release from https://git-scm.com/download/win.
+Download the Windows binary installer for the latest stable release from [https://git-scm.com/download/win](https://git-scm.com/download/win).
 
 Default settings should be fine. Once the installation is complete, open the special Git Bash terminal. This uses MinGW-w64's Bourne Shell command line interpreter which supports the same POSIX shell commands native to the Linux and OSX terminals. If you're familiar with the DOS style command line, most of the commands are different but the functionality is similar.
 
