@@ -80,7 +80,7 @@ Github is a company and a website that couples online Git repositories with soci
 
 ![Octocat](/git_slab/assets/octocat.jpg)
 
-#Installing Git
+# Installing Git
 
 Since we'll be using Git with Github, create a free account at Github now: https://github.com/join?source=header-home
 
@@ -170,7 +170,7 @@ Sometimes, the changes that we've made and the ones we're pulling aren't in conf
 
 Once the conflicts have been manually resolved, mark the files as ready for commitment with `git add`
 
-#Slightly more advanced concepts
+# Slightly more advanced concepts
 
 Branches are like repositories in that they allow code to diverge, but with a slightly different inflection. Git branches live in repos and they're all copied over when a repo is cloned. The philosophical distinction between forks and branches used to be clearer. Forks were implicitly permanent divorces and they still possess that tone when used in context of projects rather than version control. There are [multitudes of Linux distributions](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg), a majority which have been forked from three lineages: Debian, Slackware, and Red Hat. Merges between distributions are virtually nonexistant. Forks also diverged the code, but always kept it within the project.
 
