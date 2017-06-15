@@ -44,8 +44,9 @@ In the imaginary field of the intellectual history of software, the metadata and
 
 VCS is predominantly used in software development. Most tools that VCSes integrate with or are integrated with VCSes are designed to carry out development tasks: building, testing, deployment. Trivially, digital humanists who code can take advantage of these usages. However, VCSes can be used with files other than source code.
 
-For scholars collaborating on an essay or book or even a single researcher working alone, a VCS can offer many of the advantages to text it does for code. Working with simple human-readable plain text format rather than binary (legacy Word documents) or heavily formatted (post 2007 Office Open XML Word documents) files will allow users to fully take advantage of a VCS. Markdown (https://daringfireball.net/projects/markdown/syntax), created by John Gruber and Aaron Swartz, is a simple text markup language that's become the defacto standard in this domain. This page was written in a Markdown flavor. 
+For scholars collaborating on an essay or book or even a single researcher working alone, a VCS can offer many of the advantages to text it does for code. Working with simple human-readable plain text format rather than binary (legacy Word documents) or heavily formatted (post 2007 Office Open XML Word documents) files will allow users to fully take advantage of a VCS. Markdown (https://daringfireball.net/projects/markdown/syntax), created by John Gruber and Aaron Swartz, is a simple text markup language that's become the defacto standard in this domain. This page was written in a Markdown flavor.
 
+Software development used to be a solitary or small-scale activity. Version control has changed that dramatically in the last three decades. I don't know what sort of collaborative possibilities VCS might offer to scholars, but the potential for any kind of radical transformation should merit some thought and experimentation.
 
 # A Brief History of Version Control
 
@@ -59,9 +60,13 @@ SCCS was followed by the Revision Control System, written by Walter Tichy of Pur
 
 ## Second Generation
 
-The next generation of version control was created to accommodate more complex programing structure and to leverage the increasing power of computer networks. Dick Grune, a lecturer at the Vrije Universiteit in Amsterdam, wrote a series of wrapper scripts for RCS in the mid-1980s that eventually became the Concurrent Versions System.[^6]
+The next generation of version control was created to accommodate more complex programing structure and to leverage the increasing power of computer networks. Dick Grune, a lecturer at the Vrije Universiteit in Amsterdam, wrote a series of wrapper scripts for RCS in the mid-1980s that eventually became the Concurrent Versions System.[^6] CVS's major advance was to switch to a merging rather than locking-based approach to synchrony, which allowed users to work simultaneously and still arrive at a consistent final state. Additionally, CVS supported TCP/IP connectivity by the mid-1990s, in time for the first big wave of Internet adoption. With these features, CVS enjoyed unparalleled success for a decade.
+
+By the late-1990s, programmers became increasingly aware that CVS's poor support for fileset operations, inherited from the file-based operation of its RCS predecessor, posed a major problem. CVS fileset commits were not atomic and could leave a fileset partially commited if errors were encountered. Subversion, a VCS developed explicitly to replace CVS by a team comprised of former CVS developers, was released in 2000. Its interface is designed to mimick that of CVS, but offered more robust fileset support with atomic commits. Within a few years, Subversion succeeded in winning over most of the CVS community.
 
 ## Third Generation
+
+Subversion's success was relatively short-lived. Within a few years of its release, the next generation of decentralized VCS began to gain influence. Larry McVoy's BitKeeper was designed explicitly to comport with the distributed, "patch-oriented" style of Linux kernel development, the highest profile open source project of its day. BitKeeper, along with Arch, also popularized the shift from filesets to changesets that further made operations like branching even lighter weight. However, due to a variety of issues, ranging from a lack of functional maturity and performance problems to licensing issues, no decentralized VCS had significant adoption over the long-term until the release of Git, which seemed to adequately solve each of these concerns.
 
 # Git and Github
 
@@ -133,7 +138,7 @@ Try `git status` again. Git should recognize that there's a new file, but since 
 
 This file and whatever other changes we might have made now exist as part of our "working tree", the set of files that we're currently working on, but aren't yet stored into the repository. To store a file into the repository, we have to commit it and before we can commit a file, we need to track and stage it.
 
-We can tell Git to track the new file using `git add foo.bar` or simply `git add *` to add all the files in the directory. By default, `git add *` still ignores temporary, build, and log files that are typically generated by the compilation and running of source code, which we almost never want version control to track.
+We can tell Git to track the new file using `git add foo.bar` or simply `git add --all` to add all the files in the directory. By default, `git add *` still ignores temporary, build, and log files that are typically generated by the compilation and running of source code, which we almost never want version control to track.
 
 `git add` also stages a file by adding it to the index, which tells git what files we want to commit. A Git commit is the most basic operation that describes how sets of files have changed. Each commit lives forever in the history of the project, uniquely identified by a 40-character hash.
 
@@ -157,34 +162,43 @@ In this case, Git returns a rejection and helpfully tells Bob that he needs to d
 
 A Git pull is the opposite of a push. By running `git pull origin`, we're pulling the changes that have been made to the remote server back to our local repo.
 
+Sometimes, the changes that we've made and the ones we're pulling aren't in conflict and Git is able to just magically merge them automatically (usually correctly, very occasionally catastrophically). Other times, the two sets of changes do conflict and it isn't obvious to Git how to resolve the impasse. In these cases, it notes the conflicts in the files and leaves it to the user to fix them.
 
-
-
-
-	push
-	diff
-	merge
+Once the conflicts have been manually resolved, mark the files as ready for commitment with `git add`
 
 #Slightly more advanced concepts
-	
-Branching
-	Branch vs Fork
-	Fork vs Clone (fake)
-	branch (--list --contains --no-contains -d )
-	checkout
-	Pull
-	Rebase
 
-Pull request
-	
-Reversion
-	Revert
+Branches are like repositories in that they allow code to diverge, but with a slightly different inflection. Git branches live in repos and they're all copied over when a repo is cloned. The philosophical distinction between forks and branches used to be clearer. Forks were implicitly permanent divorces and they still possess that tone when used in context of projects rather than version control. There are [multitudes of Linux distributions](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg), a majority which have been forked from three lineages: Debian, Slackware, and Red Hat. Merges between distributions are virtually nonexistant. Forks also diverged the code, but always kept it within the project.
 
-Panic
+Git and its generation of VCSes along with Github have more recently confused the distinction. All local repositories are forks and the ubiquity and ease of merging them means that there exists significant overlap. Branching is now typicaly used to separate the development of independent features. A common practice now is to keep a "production" branch that represents the live code running in the wild and segregate new development onto an array of branches that are only merged back once they're ready to launch. This makes it easy to develop and deploy bug fixes without needing to shelve new code, although Git's flexibility means that this distinction is often just psychological. There are some technical differences too (repositories hold full copies of data whereas branches are just pointers to a certain commit), but often these don't really affect the user experience.
 
-Obligatory XKCD:
+We've already used branches. When we've pushed and pulled, we've typically specified a branch after the repository. The default branch in Git is the master branch. We can create a new branch based on the current branch using `git branch *new_branch*`
 
-![XKCD 1597](/git_slab/assets/xkcd_git.png)[^xkcd]
+`git branch --list` will list out all the existing branches in the repository.
+
+`git checkout *branch_name*` switches the active branch within a repository. This is very different behavior from how other VCSes use the keyword "checkout."
+
+Once changes in one branch are ready to be committed back to another, we can use `git merge *branch_name*` to bring those changes back *into* the current branch. After that, `git branch -d *branch_name*` deletes the branch.
+
+# Pull requests
+
+One last thing to shape you into a productive member of society.
+
+Open source software thrives on the limitless collaborative possibilities of the Internet. But the usual case when working with a project someone else owns is that you won't have permission to push directly to their repository. The polite way to suggest a contribution is the Pull Request, which is exactly what it sounds like - a request asking a remote repo to pull commits from yours.
+
+There's a way to do this through the command line (`git request-pull`), but with Github's titanic popularity and the social and project management features it offers, it's probably better to [go through the Github website](https://help.github.com/articles/creating-a-pull-request/) for this.
+
+#Panic
+
+Obligatory XKCD[^xkcd]:
+
+![XKCD 1597](/git_slab/assets/xkcd_git.png)
+
+Sometimes everything goes to hell. If you don't have uncommitted changes you want to keep and a Git operation goes completely off the rails, you can always roll back and try again:
+
+`git reset --hard` resets the working tree to the last commit, obliterating all uncommited changes (but doesn't remove untracked files)
+
+`git clean -xdf` completely removes all untracked files.
 
 # Cheat Sheet
 Github has a nice [Git cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf).
@@ -193,6 +207,7 @@ Github has a nice [Git cheatsheet](https://services.github.com/on-demand/downloa
 # Credits
 This page was by Shane Lin using [Jekyll](https://jekyllrb.com/). The Theme is Shu Uesugi's [Solo](https://chibicode.github.io/solo/).
 
+This document is offered under the, I guess, the MIT license. Do whatever you want with it, just please don't sue me.
 
 # Notes 
 [^1]: Thanks to Charles Berlin for the [O'rly cover generator](https://dev.to/rly)
