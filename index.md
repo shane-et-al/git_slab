@@ -194,7 +194,7 @@ Open source software thrives on the limitless collaborative possibilities of the
 
 There's a way to do this through the command line (`git request-pull`), but with Github's titanic popularity and the social and project management features it offers, it's probably better to [go through the Github website](https://help.github.com/articles/creating-a-pull-request/) for this.
 
-#Panic
+# Panic
 
 Obligatory XKCD[^xkcd]:
 
