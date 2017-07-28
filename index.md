@@ -11,7 +11,7 @@ layout: default
 
 Git is a popular third-generation Version Control System.
 
-Well okay then. What is version control?
+Well okay then! What is version control?
 
 Version control is software that helps many different people work on the same project together without getting in each others' way. VCS keeps code (and other data) in one place and enforces rules for how it's updated so everyone can work on the same source simultaneously without risk of overwriting or breaking it. In addition, VCS saves all the different versions of code (and other data) and metadata about each revision. Eric Raymond describes these three capabilities of version control as concurrency, reversibility, and annotation.[^2] Let's take a look at what these features are and why they're useful before diving deeply into how git accomplishes each.
 
