@@ -170,15 +170,19 @@ Sometimes, the changes that we've made and the ones we're pulling aren't in conf
 
 Once the conflicts have been manually resolved, mark the files as ready for commitment with `git add`
 
+## Refactoring
+
+We're (maybe?) used to working with the command line to perform basic operations on files. When working with version control, instead of using the terminal/shell to move or delete files directly, using the analogous git commands 'git mv foo.bar foo.bar.bar' and 'git rm foo.bar.bar' will allow git to reflect those changes. This way, deleting local files are also stage them for deletion and moving local files retains their history (otherwise they must be added as wholly new files).
+
 # Slightly more advanced concepts
 
 ## Branches 
 
-Branches are like repositories in that they allow code to diverge, but with a slightly different inflection. Git branches live in repos and they're all copied over when a repo is cloned. The philosophical distinction between forks and branches used to be clearer. Forks were implicitly permanent divorces and they still possess that tone when used in context of projects rather than version control. There are [multitudes of Linux distributions](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg), a majority which have been forked from three lineages: Debian, Slackware, and Red Hat. Merges between distributions are virtually nonexistant. Forks also diverged the code, but always kept it within the project.
+Branches are like repositories in that they allow code to diverge, but with a slightly different inflection. Git branches live in repos and they're all copied over when a repo is cloned. The philosophical distinction between forks and branches used to be clearer. Forks were implicitly permanent divorces and they still possess that tone when used in context of projects rather than version control. There are [multitudes of Linux distributions](https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg), a majority which have been forked from three lineages: Debian, Slackware, and Red Hat. Once these distributions fork off, instances of two converging again are virtually nonexistant. In contrast, branches stay within the same project and are created with the expectation that they will probably, eventually be reconciled. Yes, this is all metaphorically confusing, since tree branches don't typically converge whereas roads that fork often do, but some allowance must be made for software engineers. Branching is typicaly used to separate the development of independent features. A common practice is to keep a "production" branch that represents the live code running in the wild and segregate new development onto an array of branches that are only merged back once they're ready to launch. This makes it easy to develop and deploy bug fixes without needing to temporarily shelve new code.
 
-Git and its generation of VCSes along with Github have more recently confused the distinction. All local repositories are forks and the ubiquity and ease of merging them means that there exists significant overlap. Branching is now typicaly used to separate the development of independent features. A common practice now is to keep a "production" branch that represents the live code running in the wild and segregate new development onto an array of branches that are only merged back once they're ready to launch. This makes it easy to develop and deploy bug fixes without needing to shelve new code, although Git's flexibility means that this distinction is often just psychological. There are some technical differences too (repositories hold full copies of data whereas branches are just pointers to a certain commit), but often these don't really affect the user experience.
+Git and its generation of VCSes along with Github have really confused the distinction between forks and branches. All local repositories are technically forks, even if, in most cases, cloning a repo is done to work within the project. By taking a "lightweight" approach to forking, git removes the technical barriers to breaking code apart and putting it back together, leaving these decisions entirely to people. The difference between git forks and branches are therefore often more psychological than practical. There are some technical differences (repositories hold full copies of data whereas branches are just pointers to a certain commit), but often these don't really affect the user experience.
 
-We've already used branches. When we've pushed and pulled, we've typically specified a branch after the repository. The default branch in Git is the master branch. We can create a new branch based on the current branch using `git branch *new_branch*`
+We've actually already used git forks and branches. Our cloned repos are forks. When we've pushed and pulled, we've typically specified a branch after the repository. The default branch in Git is the master branch. We can create a new branch based on the current one using `git branch *new_branch*`
 
 `git branch --list` will list out all the existing branches in the repository.
 
@@ -188,7 +192,7 @@ Once changes in one branch are ready to be committed back to another, we can use
 
 ## Pull requests
 
-One last thing, to shape you all into productive members of society.
+One final thing, to shape you all into productive members of society.
 
 Open source software thrives on the limitless collaborative possibilities of the Internet. But the usual case when working with a project someone else owns is that you won't have permission to push directly to their repository. The polite way to suggest a contribution is the Pull Request, which is exactly what it sounds like - a request asking a remote repo to pull commits from yours.
 
