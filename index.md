@@ -155,7 +155,7 @@ Sometimes, the changes that we've made and the ones we're pulling aren't in conf
 Once the conflicts have been manually resolved, mark the files as ready for commitment with `git add`
 
 # Refactoring
-We're (maybe?) used to working with the command line to perform basic operations on files. When working with version control, instead of using the terminal/shell to move or delete files directly, using the analogous git commands `git mv foo.bar foo.bar2` and `git rm foo.bar2` will allow git to reflect those changes. This way, deleting local files are also stage them for deletion and moving local files retains their history (otherwise they must be added as wholly new files).
+We're (maybe?) used to working with the command line to perform basic operations on files. When working with version control, instead of using the terminal/shell to move or delete files directly, using the analogous git commands `git mv foo.bar foo.bar2` and `git rm foo.bar2` will allow git to reflect those changes. This way, deleting local files will also stage them for deletion and moving local files retains their history (otherwise they must be added as wholly new files).
 
 # Slightly more advanced concepts
 
