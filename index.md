@@ -3,6 +3,8 @@ layout: default
 ---
 
 ![Git for Digital Humanists](/git_slab/assets/git_hum.png)[^1]
+By Shane Lin
+Scholars' Lab, University of Virginia Library
 
 * Table of Contents
 {:toc}
@@ -67,7 +69,7 @@ Git is a third-generation version control system. Github is the most popular web
 
 Git was created in 2005 by the creator of the Linux kernel, Linus Torvalds, for use in its development. Torvalds designed Git to be a repudiation of the core design of CVS; it is a distributed, commit-before-merge VCS that better supports massive projects and easy non-linear development through rapid branching and merging.[^7] At least in theory. It is Free Software licensed under the GPL. The name "Git" comports with its description as "the stupid content tracker."[^8]
 
-Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on [our Github account](https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
+Github is a company and a website that couples online Git repositories with social features to promote collaborative open development. In June of 2017, Microsoft reached an agreement to purchase Github.[^7A] It is the largest such source code hosting website with tens of millions of users. It was built with Ruby on Rails, a project it also hosts. Most of Scholars' Lab's code lives on [our Github account](https://github.com/scholarslab/) and the service is popular with other Digital Humanists. Github's mascot is, for some reason, the Octocat, a chimera with a human face, a felid head, and (despite the name) only five tentacles.
 
 ![Octocat](/git_slab/assets/octocat.jpg)
 
@@ -207,6 +209,7 @@ This document is offered under the, I guess, the MIT license. Do whatever you wa
 [^5]: The latest version, as I write this, is 5.9.4, released January 2015. [https://www.cs.purdue.edu/homes/trinkle/RCS/](https://www.cs.purdue.edu/homes/trinkle/RCS/)
 [^6]: [http://dickgrune.com/Programs/CVS.orig/](http://dickgrune.com/Programs/CVS.orig/)
 [^7]: Torvalds described the Git design process as "WWCVSND: What Would CVS Never Do". [https://www.youtube.com/watch?v=4XpnKHJAok8](https://www.youtube.com/watch?v=4XpnKHJAok8)
+[^7A]: [https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/]
 [^8]: [https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README)
 [^xkcd]: [https://xkcd.com/1597/](https://xkcd.com/1597/)
 
