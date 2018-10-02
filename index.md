@@ -1,10 +1,10 @@
 ---
 layout: default
 ---
+[^1]
+![Git for Digital Humanists](/git_slab/assets/git_hum.png)
 
-![Git for Digital Humanists](/git_slab/assets/git_hum.png)[^1]
-By Shane Lin
-Scholars' Lab, University of Virginia Library
+By Shane Lin, Scholars' Lab, University of Virginia Library
 
 * Table of Contents
 {:toc}
