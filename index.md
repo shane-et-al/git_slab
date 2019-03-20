@@ -193,7 +193,7 @@ Sometimes everything goes to hell. If you don't have uncommitted changes you wan
 `git clean -xdf` completely removes all untracked files.
 
 # Cheat Sheet
-Github has a nice [Git cheatsheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf).
+Github has a nice [Git cheatsheet](https://education.github.com/git-cheat-sheet-education.pdf).
 
 
 # Credits
