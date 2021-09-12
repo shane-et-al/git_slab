@@ -21,9 +21,9 @@ Concurrency allows many different coders to work on the same files at the same t
 
 To get around this, people might coordinate beforehand on what they'll be working on to stay out of each others' way. Or they'll try to label files uniquely, creating many different versions like "code_alice_july_20_c.py".
 
-But these are onerous workarounds and they often leave Alice and Bob open to more nuanced and insidious problems and they quickly break down as projects become more complex and teams grow larger. To wit: [Ruby on Rails](https://github.com/rails/rails), one of the largest projects hosted on Github (more about that later), comprises more than 62,000 commits from over 3300 contributors. 
+But these are onerous workarounds. They often leave Alice and Bob open to more nuanced and insidious problems and they quickly break down as projects become more complex and teams grow larger. [Ruby on Rails](https://github.com/rails/rails), one of the largest projects hosted on Github (more about that later), comprises more than 62,000 commits from over 3300 contributors. 
 
-Rails is a good example of the power of good version control. Software like Git have allowed software development projects, particularly modern open source projects, to leverage the insights and labor from complete strangers from all over the world. There's a small, core team that has contributed tens of thousands of lines of code, but tens of thousands who have added a few new lines or a tiny bug fix. Scholarship may often be a lonely endeavor, but version control has made it possible for software development to grow into huge parties.
+Rails is a good example of the power of version control. Software like Git have allowed software development projects, particularly modern open source projects, to leverage the insights and labor from complete strangers from all over the world. There's a small, core team that has contributed tens of thousands of lines of code, but tens of thousands who have added a few new lines or a tiny bug fix. Scholarship may often be a lonely endeavor, but version control has made it possible for software development to grow into huge parties.
 
 ## Reversibility
 A VCS keeps a record of every revision. This is most commonly useful when things completely fall apart and the ability of reverting to an earlier, good version provides a quick and easy fix. Since we can also see exactly what's different from version to version, it's also easy to track down exactly what changes caused the problem. No less useful is the ability to return to an earlier state of the project's source, to track down a new bug in a specific older version or else to compare the function of new and old code.
@@ -93,7 +93,9 @@ Alternatively, download the OSX binary installer for the latest stable release f
 Verify that the installation has succeeded by typing: `git --version`
 
 ## Windows
-Download the Windows binary installer for the latest stable release from [https://git-scm.com/download/win](https://git-scm.com/download/win).
+[Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/) (WSL) is a good piece of software. If you use WSL, you can follow the Linux instructions above.
+
+To run git natively, download the Windows binary installer for the latest stable release from [https://git-scm.com/download/win](https://git-scm.com/download/win).
 
 Default settings should be fine. Once the installation is complete, open the special Git Bash terminal. This uses MinGW-w64's Bourne Shell command line interpreter which supports the same POSIX shell commands native to the Linux and OSX terminals. If you're familiar with the DOS style command line, most of the commands are different but the functionality is similar.
 
